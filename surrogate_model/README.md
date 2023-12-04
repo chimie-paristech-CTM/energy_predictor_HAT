@@ -50,8 +50,8 @@ python predict.py --test_path <path> --checkpoint_path <model_path> --preds_path
 Where ```<path>``` corresponds to a csv file containing atom-mapped SMILES to predict on (column header ```smiles```), ```<model_path>``` points to the model.py file of a trained model and ```<output>``` refers to the pickle file to save the predictions in.
 
 ### Trained Model
-This repository contains a trained model here: ```qm_pred/qmdesc_wrap/model.pt```. This checkpoin was trained to predict atomic (Mulliken partial charges, Mulliken spin densities) and molecular (Buried Volume, Bond Dissociation Free Energy, frozen Bond Dissociation Energy) properties.
-The model was trained on an dataset of QM properties for 40,000 closed-shell organic molecules and 200,000 radical analogs by Paton and co-workers, BDE-db ([St. John et al](https://doi.org/10.1038/s41597-020-00588-x)).
+This repository contains a trained model here: ```qmdesc_wrap/model.pt```. This checkpoint was trained to predict atomic (Mulliken partial charges, Mulliken spin densities) and molecular (Buried Volume, Bond Dissociation Free Energy, frozen Bond Dissociation Energy) properties.
+The model was trained on a dataset of QM properties for 40,000 closed-shell organic molecules and 200,000 radical analogs by Paton and co-workers, BDE-db ([St. John et al](https://doi.org/10.1038/s41597-020-00588-x)).
 
 ## Data
 The training data consists of the following columns: ```smiles```recording all atom-mapped SMILES strings, all QM properties individually with all atom and molecular proeprties per molecule in one row stored in lists, ```CHEMBL_ID``` representing any compound ID (optional: if available, add command ```--use_compound_names```, ```CONF_ID```representing the conformer ID (optional: if availabel, add command ```--use_conf_id```). The index is stored in the first column.
