@@ -17,12 +17,21 @@ As simple as :)
 python run.py --rxn_smiles 'CCO.C[CH2]>>CC[O].CC'
 ```
 
+or
+
+```
+python run.py --csv_file tmp/examples.csv
+```
+
 The reaction smiles should be in the form of:
 
 ```
 mol_1 + rad_2 >> rad_1 + mol_1
 ```
 
+The first step is the prediction of relevant chemical information of reactants and products with the surrogate model, and a
+learned VB-representation of the reaction smiles is generated. With this, the corrected activation energy is predicted. With the 
+combination of both models, a reaction profile can be generated in a fast and accurate way.
 
 ## Individual models
 In the `reactivity_model` and `surrogate_model` directories you can find each individual model. In both folder there is also a README in case you want 

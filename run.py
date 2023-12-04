@@ -4,6 +4,7 @@ from utils.log import create_logger
 from utils.input_for_pred import create_input_pred
 from utils.create_input_ffnn import create_input_ffnn
 from utils.run_models import run_surrogate, run_reactivity
+from utils.final_output import final_output
 import time
 
 
@@ -13,7 +14,7 @@ parser.add_argument('--csv_file', type=str, help='path to file containing the rx
 
 if __name__ == '__main__':
 
-    time_0 = time.time()
+    initial_time = time.time()
     args = parser.parse_args()
     logger = create_logger()
 
@@ -33,6 +34,10 @@ if __name__ == '__main__':
         run_surrogate()
         create_input_ffnn('tmp/preds_surrogate.pkl', 'tmp/reactivity_database_mapped.csv')
         run_reactivity()
+        final_output('tmp/pred.csv', 'tmp/input_ffnn.csv')
+        final_time = time.time()
+        logger.info(f'results in output.csv')
+        logger.info(f'time: {final_time - initial_time} seconds')
 
 
 

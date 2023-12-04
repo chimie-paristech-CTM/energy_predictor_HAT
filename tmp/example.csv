@@ -1,0 +1,5 @@
+,index,RXN_SMILES
+0,0,CN(C)C(N)=C(C#N)C#N.[CH2]N(C)C(=C)C(C)C>>CN(C)C([NH])=C(C#N)C#N.C=C(C(C)C)N(C)C
+1,1,CC(=O)/C=C(/C)OC(C)=O.[CH2]C(=O)CN(CC)C(N)=O>>[CH2]C(=O)/C=C(/C)OC(C)=O.CCN(CC(C)=O)C(N)=O
+2,2,NCCCn1cncn1.[CH2][C@@H](NCC=C)C(C)C>>N[CH]CCn1cncn1.C=CCN[C@H](C)C(C)C
+3,3,Cn1cc(C=O)c(C=O)n1.C[C@@H]1[CH]OC[C@]1(C)O>>[CH2]n1cc(C=O)c(C=O)n1.C[C@@H]1COC[C@]1(C)O
