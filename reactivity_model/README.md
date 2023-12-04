@@ -63,7 +63,7 @@ For example:
 python cross_val.py --data_path desc/input_ffnn.pkl --k_fold 10 --hidden-size 50 --learning_rate 0.0685 --lr_ratio 0.93 --random_state 2 --ensemble_size 10 --features 's_rad' --model_dir cross_val_ensemble10
 ```
 
-### Trained Model
+## Trained Model
 This repository contains a trained model here: `final_model_4/`. The model was trained on our in-house dataset of HAT reactions.
 
 ## Transfer Learning

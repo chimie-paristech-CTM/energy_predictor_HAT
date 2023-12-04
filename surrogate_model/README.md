@@ -49,7 +49,7 @@ python predict.py --test_path <path> --checkpoint_path <model_path> --preds_path
 
 Where ```<path>``` corresponds to a csv file containing atom-mapped SMILES to predict on (column header ```smiles```), ```<model_path>``` points to the model.py file of a trained model and ```<output>``` refers to the pickle file to save the predictions in.
 
-### Trained Model
+## Trained Model
 This repository contains a trained model here: ```qmdesc_wrap/model.pt```. This checkpoint was trained to predict atomic (Mulliken partial charges, Mulliken spin densities) and molecular (Buried Volume, Bond Dissociation Free Energy, frozen Bond Dissociation Energy) properties.
 The model was trained on a dataset of QM properties for 40,000 closed-shell organic molecules and 200,000 radical analogs by Paton and co-workers, BDE-db ([St. John et al](https://doi.org/10.1038/s41597-020-00588-x)).
 
