@@ -1,0 +1,8 @@
+dropout: 0.0
+hidden_size: 230
+input_dim: 14
+layers: 0
+learning_rate: 0.0277
+lr_ratio: 0.95
+min_lr: 1.0e-05
+output_dim: 1

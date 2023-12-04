@@ -1,0 +1,57 @@
+2023-11-10 10:53:06,926 INFO: Args:
+!!python/object:argparse.Namespace
+batch_size: 64
+csv_file: null
+data_path: desc/input_ffnn.pkl
+debug: false
+dropout: 0.0
+ensemble_size: 4
+features:
+- dG_forward
+- dG_reverse
+- q_reac0
+- qH_reac0
+- q_reac1
+- s_reac1
+- q_prod0
+- s_prod0
+- q_prod1
+- qH_prod1
+- BV_reac1
+- BV_prod0
+- fr_dG_forward
+- fr_dG_reverse
+gpu: false
+hidden_size: 230
+host: 127.0.0.1
+layers: 0
+learning_rate: 0.0277
+lr_ratio: 0.95
+max_epochs: 100
+min_lr: 1.0e-05
+mode: client
+port: 57546
+pred_file: null
+random_state: 0
+rxn_id_column: rxn_id
+rxn_smile_column: null
+save_dir: results/final_model_4/
+splits:
+- 80
+- 10
+- 10
+target_column: DG_TS_tunn
+test_set_path: null
+train_valid_set_path: null
+trained_dir: null
+transfer_learning: false
+
+2023-11-10 10:53:06,926 INFO: Training of model 0 started...
+2023-11-10 10:53:08,143 INFO: Train, val: (1360, 151)
+2023-11-10 10:53:13,042 INFO: Training of model 1 started...
+2023-11-10 10:53:14,253 INFO: Train, val: (1360, 151)
+2023-11-10 10:53:15,635 INFO: Training of model 2 started...
+2023-11-10 10:53:16,845 INFO: Train, val: (1360, 151)
+2023-11-10 10:53:20,494 INFO: Training of model 3 started...
+2023-11-10 10:53:21,714 INFO: Train, val: (1360, 151)
+2023-11-10 10:53:24,147 INFO: Training finished
