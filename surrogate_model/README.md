@@ -1,5 +1,5 @@
 # Atomic and molecular property prediction for QM-augmented reactivity prediction
-This folder contains a message passing neural network for the prediction of atomic, bond and molecular properties. The code is adapted from [chemprop-atom-bond](https://github.com/yanfeiguan/chemprop-atom-bond) by [@yanfeiguan](https://github.com/yanfeiguan). 
+This folder contains a message passing neural network for the prediction of atomic and molecular properties. The code is adapted from [chemprop-atom-bond](https://github.com/yanfeiguan/chemprop-atom-bond) by [@yanfeiguan](https://github.com/yanfeiguan). 
 
 ## Training
 To train a model, run:
@@ -59,7 +59,7 @@ The dataframe may look like this:
 
 | |smiles|dG|spin_densities|
 |-|------|--|--------------|
-|0|[O:1][H:2]|[116]|[1.025, -0.025]|
+|0|[O:1][H:2]|[109.00]|[1.025, -0.025]|
 
 It is recommended to generate the pickle file using this repository's conda environment to avoid version issues with the pandas package.
 
