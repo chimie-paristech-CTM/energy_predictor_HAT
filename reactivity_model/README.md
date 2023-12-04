@@ -67,7 +67,7 @@ python cross_val.py --data_path desc/input_ffnn.pkl --k_fold 10 --hidden-size 50
 This repository contains a trained model here: `final_model_4/`. The model was trained on our in-house dataset of HAT reactions.
 
 ## Transfer Learning
-To re-train a previous model with new data, adding `--transfer_learning` and specifying the `trained_dir` 
+To re-train a previous model with new data, add `--transfer_learning` and specify the `trained_dir` 
 
 For example:
 ```
