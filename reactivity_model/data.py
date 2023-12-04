@@ -5,7 +5,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import torch
 from torch.utils.data.dataset import Dataset
-from drfp import DrfpEncoder
 
 
 class PredDataset(Dataset):
