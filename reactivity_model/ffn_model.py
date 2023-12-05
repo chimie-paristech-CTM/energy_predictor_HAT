@@ -13,7 +13,6 @@ class ForwardFFN(pl.LightningModule):
                  layers: int = 2,
                  dropout: float = 0.0,
                  learning_rate: float = 1e-3,
-                 min_lr: float = 1e-5,
                  input_dim: int = 10,
                  output_dim: int = 1,
                  lr_ratio: float = 0.97,
@@ -40,7 +39,6 @@ class ForwardFFN(pl.LightningModule):
         self.dropout = dropout
 
         self.learning_rate = learning_rate
-        self.min_lr = min_lr
         self.lr_ratio = lr_ratio
         self.loss_fn = self.mse_loss
 

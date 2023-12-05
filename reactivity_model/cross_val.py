@@ -147,7 +147,6 @@ if __name__ == '__main__':
                     layers=args.layers,
                     dropout=args.dropout,
                     learning_rate=args.learning_rate,
-                    min_lr=args.min_lr,
                     input_dim=input_dim,
                     output_dim=1,
                     lr_ratio=args.lr_ratio

@@ -120,12 +120,6 @@ def get_args(cross_val=False):
         type=float,
         help="a", )
     parser.add_argument(
-        "--min_lr",
-        default=1e-5,
-        action="store",
-        type=float,
-        help="a", )
-    parser.add_argument(
         "--lr_ratio",
         default=0.95,
         action="store",
@@ -148,11 +142,6 @@ def get_args(cross_val=False):
         type=str,
         default=None,
         help='path to file containing the rxn-smiles',
-    )
-    parser.add_argument(
-        '--rxn_smile_column',
-        type=str,
-        help='column name for rxn_smile'
     )
 
     # interactive way
