@@ -40,11 +40,23 @@ Further important commands for training:
 
 Consult ```qm_pred/utilities/parsing.py``` for more options.
 
+A typical run:
+````
+python train.py --data_path 'examples/testset_surrogate_model.pkl' --bond_targets none --save_dir 'output' --early_stopping --mol_ext_targets none --atom_targets 'spin_densities' 'charges_all_atom' --mol_int_targets 'Buried_Vol' 'dG' 'frozen_dG' --atom_constraints 1 1 --explicit_Hs --depth 5 --patience 5  --epoch 100 --hidden_size 1200 --ffn_hidden_size 900 --ffn_num_layers 4 --target_scaling --no_atom_scaling --target_scaler_type 'StandardScaler'
+````
+
+The training and test set can be found [here](https://figshare.com/projects/Hydrogen_atom_transfer_reactions/188007)
+
 ## Predicting
 To predict all QM properties with a pre-trained model, run:
 
 ```
 python predict.py --test_path <path> --checkpoint_path <model_path> --preds_path <output>
+```
+
+For example:
+```
+python predict.py --test_path examples/species_reactivity_dataset.csv --checkpoint_path qmdesc_wrap/model.pt --preds_path examples/species_reactivity_dataset_pred.pkl
 ```
 
 Where ```<path>``` corresponds to a csv file containing atom-mapped SMILES to predict on (column header ```smiles```), ```<model_path>``` points to the model.py file of a trained model and ```<output>``` refers to the pickle file to save the predictions in.
