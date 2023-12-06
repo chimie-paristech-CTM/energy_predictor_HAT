@@ -57,9 +57,14 @@ The model was trained on a dataset of QM properties for 40,000 closed-shell orga
 The training data consists of the following columns: ```smiles```recording all atom-mapped SMILES strings, all QM properties individually with all atom and molecular proeprties per molecule in one row stored in lists, ```CHEMBL_ID``` representing any compound ID (optional: if available, add command ```--use_compound_names```, ```CONF_ID```representing the conformer ID (optional: if availabel, add command ```--use_conf_id```). The index is stored in the first column.
 The dataframe may look like this:
 
-| |smiles|dG|spin_densities|
-|-|------|--|--------------|
-|0|[O:1][H:2]|[109.00]|[1.025, -0.025]|
+|   | smiles          | BDFE     | spin_densities  | charges               | buried_volume | fr_BDE |
+|---|-----------------|----------|-----------------|-----------------------|-------|-------|
+| 0 | [O:1][H:2]      | [109.00] | [1.025, -0.025] | [-0.326398, 0.326398] | [0.0] | [156.06] |
+| 1 |[O:1]([H:2])[H:3]| [0.0]    | [0.0, 0.0, 0.0] | [-0.657153, 0.328577, 0.328577] | [0.0] | [0.0] |
+
+In the above table, there are two examples, radical hydroxyl and water molecule. The BDFE, buried volume and frozen BDE are equal to zero because a molecule
+does not have that properties. In the case of the radical hydroxil, the buried volume is equal zero because when the buried volume was computed, all the hydrogen
+atoms were omitted.
 
 It is recommended to generate the pickle file using this repository's conda environment to avoid version issues with the pandas package.
 
