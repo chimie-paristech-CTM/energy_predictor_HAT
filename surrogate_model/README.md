@@ -74,7 +74,7 @@ The dataframe may look like this:
 | 0 | [O:1][H:2]          | [109.00] | [1.025, -0.025] | [-0.326398, 0.326398] | [0.0] | [156.06] |
 | 1 | [O:1]\([H:2]\)[H:3] | [0.0]    | [0.0, 0.0, 0.0] | [-0.657153, 0.328577, 0.328577] | [0.0] | [0.0] |
 
-In the above table, there are two examples, radical hydroxyl and water molecule. The BDFE, buried volume and frozen BDE are equal to zero because a molecule
+In the above table, there are two examples, radical hydroxyl and water molecule. The BDFE, buried volume, spin densites and frozen BDE are equal to zero because a molecule
 does not have that properties. In the case of the radical hydroxil, the buried volume is equal zero because when the buried volume was computed, all the hydrogen
 atoms were omitted.
 
