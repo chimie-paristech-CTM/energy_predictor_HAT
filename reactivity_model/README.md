@@ -64,12 +64,12 @@ python cross_val.py --data_path desc/input_ffnn.pkl --k_fold 10 --hidden-size 50
 ```
 
 ## Trained Model
-This repository contains a trained model here: `final_model_4/`. The model was trained on our in-house dataset of HAT reactions.
+This repository contains a trained model here: `results/final_model_4/`. The model was trained on our in-house dataset of HAT reactions.
 
 ## Transfer Learning
 To re-train a previous model with new data, add `--transfer_learning` and specify the `trained_dir` 
 
 For example:
 ```
-python3 train.py --save_dir 'results/final_model_rmechdb_4_water/' --data_path 'desc/input_ffnn_rmechdb_water.pkl' --ensemble_size 4 --transfer_learning --trained_dir 'final_model_4/'
+python3 train.py --save_dir 'results/final_model_rmechdb_4_water/' --data_path 'desc/input_ffnn_rmechdb_water.pkl' --ensemble_size 4 --transfer_learning --trained_dir '/resultsfinal_model_4/'
 ```
