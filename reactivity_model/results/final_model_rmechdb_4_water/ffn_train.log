@@ -1,0 +1,57 @@
+2023-11-29 17:01:54,802 INFO: Args:
+!!python/object:argparse.Namespace
+batch_size: 64
+csv_file: null
+data_path: desc/input_ffnn_rmechdb_water.pkl
+debug: false
+dropout: 0.0
+ensemble_size: 4
+features:
+- dG_forward
+- dG_reverse
+- q_reac0
+- qH_reac0
+- q_reac1
+- s_reac1
+- q_prod0
+- s_prod0
+- q_prod1
+- qH_prod1
+- BV_reac1
+- BV_prod0
+- fr_dG_forward
+- fr_dG_reverse
+gpu: false
+hidden_size: 230
+host: 127.0.0.1
+layers: 0
+learning_rate: 0.0277
+lr_ratio: 0.95
+max_epochs: 100
+min_lr: 1.0e-05
+mode: client
+port: 57546
+pred_file: null
+random_state: 0
+rxn_id_column: rxn_id
+rxn_smile_column: null
+save_dir: results/final_model_rmechdb_4_water/
+splits:
+- 80
+- 10
+- 10
+target_column: DG_TS_tunn
+test_set_path: null
+train_valid_set_path: null
+trained_dir: results/final_model_4/
+transfer_learning: true
+
+2023-11-29 17:01:54,802 INFO: Training of model 0 started...
+2023-11-29 17:01:54,906 INFO: Train, val: (66, 7)
+2023-11-29 17:01:55,407 INFO: Training of model 1 started...
+2023-11-29 17:01:55,503 INFO: Train, val: (66, 7)
+2023-11-29 17:01:56,036 INFO: Training of model 2 started...
+2023-11-29 17:01:56,130 INFO: Train, val: (66, 7)
+2023-11-29 17:01:56,319 INFO: Training of model 3 started...
+2023-11-29 17:01:56,412 INFO: Train, val: (66, 7)
+2023-11-29 17:01:56,852 INFO: Training finished
