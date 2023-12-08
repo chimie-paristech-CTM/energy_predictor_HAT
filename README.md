@@ -47,7 +47,7 @@ If you use this code, please cite:
          author={Javier E. Alfonso-Ramos, Rebecca M. Neeser and Thijs Stuyver},
          journal="{ChemRxiv}",
          year="{2023}",
-         doi="--",
-         url="--"
+         doi="10.26434/chemrxiv-2023-2n281",
+         url="https://doi.org/10.26434/chemrxiv-2023-2n281"
 }
 ```
