@@ -1,6 +1,7 @@
 # Activation energy with tunneling correction prediction with a learned VB-representation and on-the-fly quantum mechanical descriptors
 
 This repository contains the code for a fast prediction of activation energies. Code is provided "as-is". Minor edits may be required to tailor the scripts for different computational systems. 
+The image below shows an schematic representation of the pipeline. ![](toc.png)
 
 ### Conda environment
 
