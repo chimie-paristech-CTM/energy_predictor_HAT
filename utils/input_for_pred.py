@@ -2,7 +2,7 @@ import pandas as pd
 from rdkit import Chem
 
 
-def create_input_pred(df):
+def create_input_pred(df, target_column=None):
 
     rxns = df['RXN_SMILES'].tolist()
     rxns_mapped = []
@@ -13,6 +13,10 @@ def create_input_pred(df):
     df_mapped = pd.DataFrame()
 
     df_mapped['rxn_smiles'] = rxns_mapped
+    if target_column:
+        if target_column in df.columns:
+            targets = df[target_column].tolist()
+            df_mapped[target_column] = targets
 
     df_mapped = df_mapped[df_mapped['rxn_smiles'] != False]
     df_mapped.reset_index(inplace=True)

@@ -29,4 +29,15 @@ def run_reactivity():
     return None
 
 
+def run_cv(data_path, target_column, save_dir):
+    
+    path = f"reactivity_model/cross_val.py"
+    inputs = f" --data_path {data_path} --k_fold 10 --hidden-size 230 --target_column {target_column} \
+    --learning_rate 0.0277 --lr_ratio 0.95 --random_state 2 --ensemble_size 4  --save_dir {save_dir}"
 
+    with open('out_file', 'w') as out:
+        subprocess.run(f"python {path} {inputs}", shell=True, stdout=out, stderr=out)
+    
+    return None
+
+    

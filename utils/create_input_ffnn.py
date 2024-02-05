@@ -2,7 +2,7 @@
 import pandas as pd
 from rdkit import Chem
 
-def create_input_ffnn(pkl_file, csv_file, additional_data=None, output='input_ffnn'):
+def create_input_ffnn(pkl_file, csv_file, target_column=None, additional_data=None, output='input_ffnn'):
     """ we're going to take the csv file of the baseline model and add the line of descriptors pred by the surrogate
     model this surrogate model now predict the charges of open and closed shell molecules and also the dG
 
@@ -87,6 +87,10 @@ def create_input_ffnn(pkl_file, csv_file, additional_data=None, output='input_ff
     input_ffnn['q_prod0'] = charge_p1
     input_ffnn['BV_reac1'] = BV_r1
     input_ffnn['BV_prod0'] = BV_p0
+
+    if target_column:
+        if target_column in reactivity_data.columns:
+            input_ffnn[target_column] = reactivity_data[target_column]
 
     input_ffnn.to_csv(f'tmp/{output}.csv')
     input_ffnn.to_pickle(f'tmp/{output}.pkl')
