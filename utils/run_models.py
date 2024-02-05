@@ -19,7 +19,7 @@ def run_reactivity():
 
     path = f"reactivity_model/predict.py"
     pred_file = "tmp/input_ffnn.csv"
-    trained_dir = "reactivity_model/final_model_4/"
+    trained_dir = "reactivity_model/results/final_model_4/"
     save_dir = "tmp/"
     inputs = f"--pred_file {pred_file} --trained_dir {trained_dir} --save_dir {save_dir} --ensemble_size 4"
 
