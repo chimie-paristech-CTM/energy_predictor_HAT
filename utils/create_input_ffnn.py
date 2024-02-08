@@ -70,7 +70,10 @@ def create_input_ffnn(pkl_file, csv_file, target_column=None, additional_data=No
 
     input_ffnn = pd.DataFrame()
 
-    input_ffnn['rxn_id'] = reactivity_data.index
+    if 'rxn_id' in reactivity_data.columns:
+        input_ffnn['rxn_id'] = reactivity_data.rxn_id
+    else:
+        input_ffnn['rxn_id'] = reactivity_data.index
     input_ffnn['dG_rxn'] = dG
     input_ffnn['dG_forward'] = dG_forward
     input_ffnn['dG_reverse'] = dG_reverse

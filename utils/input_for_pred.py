@@ -5,6 +5,7 @@ from rdkit import Chem
 def create_input_pred(df, target_column=None):
 
     rxns = df['RXN_SMILES'].tolist()
+    ids = df.index.values.tolist()
     rxns_mapped = []
 
     for rxn in rxns:
@@ -13,11 +14,13 @@ def create_input_pred(df, target_column=None):
     df_mapped = pd.DataFrame()
 
     df_mapped['rxn_smiles'] = rxns_mapped
+    df_mapped['rxn_id'] = ids
     if target_column:
         if target_column in df.columns:
             targets = df[target_column].tolist()
             df_mapped[target_column] = targets
-
+    
+    #df_mapped.to_csv('tmp/reactivity_database_mapped_before_filter.csv')
     df_mapped = df_mapped[df_mapped['rxn_smiles'] != False]
     df_mapped.reset_index(inplace=True)
     df_mapped.to_csv('tmp/reactivity_database_mapped.csv')
