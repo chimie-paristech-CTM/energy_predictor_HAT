@@ -1,71 +1,5 @@
 import pandas as pd
-import numpy as np
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LinearRegression
 from rdkit import Chem
-
-
-def final_eval(df_train, df_test, model, target_column='DFT_Barrier'):
-    """
-    Function to perform cross-validation
-
-    Args:
-        df_train (pd.DataFrame): the DataFrame containing features and targets for train
-        df_test (pd.DataFrame): the DataFrame containing features and targets for test
-        model (sklearn.Regressor): An initialized sklearn model
-        target_column (str): target column
-
-    Returns:
-        int: the obtained RMSE and MAE
-    """
-
-    feature_names = [column for column in df_train.columns if column not in['DFT_Barrier', 'rxn_id']]
-
-    df_train = df_train.sample(frac=1, random_state=0)
-
-    X_train, y_train = df_train[feature_names], df_train[[target_column]]
-    X_test, y_test = df_test[feature_names], df_test[[target_column]]
-    # scale the two dataframes
-    feature_scaler = StandardScaler()
-    feature_scaler.fit(X_train)
-    X_train = feature_scaler.transform(X_train)
-    X_test = feature_scaler.transform(X_test)
-
-    target_scaler = StandardScaler()
-    target_scaler.fit(y_train)
-    y_train = target_scaler.transform(y_train)
-    y_test = target_scaler.transform(y_test)
-
-    # fit and compute rmse and mae
-    model.fit(X_train, y_train.ravel())
-    predictions = model.predict(X_test)
-    predictions = predictions.reshape(-1,1)
-
-    rmse = np.sqrt(mean_squared_error(target_scaler.inverse_transform(predictions), target_scaler.inverse_transform(y_test)))
-    mae = mean_absolute_error(target_scaler.inverse_transform(predictions), target_scaler.inverse_transform(y_test))
-    r2 = r2_score(target_scaler.inverse_transform(y_test), target_scaler.inverse_transform(predictions))
-
-    return rmse, mae, r2
-
-
-def get_accuracy_linear_regression(df_train, df_test, logger):
-
-    model = LinearRegression()
-    rmse, mae, r2 = final_eval(df_train, df_test, model)
-
-    logger.info(f'RMSE, MAE and R^2 for linear regression: {rmse} {mae} {r2}')
-
-
-def prepare_df(data, features):
-
-    features = features + ['DFT_Barrier'] + ['rxn_id']
-
-    columns_remove = [column for column in data.columns if column not in features]
-
-    df = data.drop(columns=columns_remove)
-
-    return df
 
 
 def add_pred_tantillo(train_file, test_file, pred_file):
@@ -134,7 +68,6 @@ def add_pred_tantillo(train_file, test_file, pred_file):
     data_steroids.to_csv('tmp/tantillo_data/input_steroids_tantillo.csv')
 
     return None
-
 
 
 def canonicalize_smiles(smiles):

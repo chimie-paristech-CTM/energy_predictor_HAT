@@ -2,7 +2,7 @@ import pandas as pd
 from rdkit import Chem
 
 
-def create_input_pred(df, target_column=None):
+def create_input_pred(df, target_column=None, target_column_2=None):
 
     rxns = df['RXN_SMILES'].tolist()
     ids = df.index.values.tolist()
@@ -19,6 +19,11 @@ def create_input_pred(df, target_column=None):
         if target_column in df.columns:
             targets = df[target_column].tolist()
             df_mapped[target_column] = targets
+    
+    if target_column_2:
+        if target_column_2 in df.columns:
+            targets = df[target_column_2].tolist()
+            df_mapped[target_column_2] = targets
     
     #df_mapped.to_csv('tmp/reactivity_database_mapped_before_filter.csv')
     df_mapped = df_mapped[df_mapped['rxn_smiles'] != False]
