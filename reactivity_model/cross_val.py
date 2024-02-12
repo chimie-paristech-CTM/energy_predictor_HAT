@@ -2,7 +2,7 @@ import torch
 
 import ffn_model
 from data import split_data_cross_val, normalize_data, scaling_back, PredDataset
-from data import get_metrics, write_predictions
+from data import get_metrics, write_predictions, delta_target
 import pandas as pd
 import numpy as np
 from torch.utils.data import DataLoader
@@ -56,6 +56,11 @@ if __name__ == '__main__':
     mae_activation_energy_list = []
     r2_activation_energy_list = []
 
+    if args.delta_ML:
+        rmse_activation_energy_delta_list = []
+        mae_activation_energy_delta_list = []
+        r2_activation_energy_delta_list = []
+
     for i in range(args.k_fold):
 
         logging.info(f"Training the {i}th iteration...")
@@ -86,6 +91,9 @@ if __name__ == '__main__':
                 args.random_state,
                 args.test_set_path,
             )
+
+            if args.delta_ML:
+                train, valid, test = delta_target(train, valid, test)
 
             # only store splits when a single model is used due to
             # ballooning storage footprint
@@ -220,15 +228,38 @@ if __name__ == '__main__':
             f"success rate for iter {i} - activation energy: {rmse_act}, {mae_act}, {r2_act}"
         )
 
+        if args.delta_ML:
+            test['ddG_predict'] = predicted_activation_energies
+            test['dG_TS_tunn_delta_predict'] = test['ddG_predict'] + test['DG_TS_tunn_linear']
+            # compute and store metrics
+            mae_act, rmse_act, r2_act = get_metrics(test['DG_TS_tunn'], test['dG_TS_tunn_delta_predict'])
+
+            rmse_activation_energy_delta_list.append(rmse_act)
+            mae_activation_energy_delta_list.append(mae_act)
+            r2_activation_energy_delta_list.append(r2_act)
+
+    
     # report final results at the end of the run
     logging.info(
-        f"RMSE for {args.k_fold}-fold cross-validation - activation energy: "
+        f"RMSE for {args.k_fold}-fold cross-validation - {args.target_column}: "
         f"{np.mean(np.array(rmse_activation_energy_list))}"
-        f"\nMAE for {args.k_fold}-fold cross-validation - activation energy: "
+        f"\nMAE for {args.k_fold}-fold cross-validation - {args.target_column}: "
         f"{np.mean(np.array(mae_activation_energy_list))}"
-        f"\nR2 for {args.k_fold}-fold cross-validation - activation energy: "
+        f"\nR2 for {args.k_fold}-fold cross-validation - {args.target_column}: "
         f"{np.mean(np.array(r2_activation_energy_list))}"
     )
+
+    if args.delta_ML:
+        # report final results at the end of the run
+        logging.info(
+            f"RMSE for {args.k_fold}-fold cross-validation - delta-ML - activation energy: "
+            f"{np.mean(np.array(rmse_activation_energy_delta_list))}"
+            f"\nMAE for {args.k_fold}-fold cross-validation - delta-ML - activation energy: "
+            f"{np.mean(np.array(mae_activation_energy_delta_list))}"
+            f"\nR2 for {args.k_fold}-fold cross-validation - delta-ML - activation energy: "
+            f"{np.mean(np.array(r2_activation_energy_delta_list))}"
+        )
+
 
 
 

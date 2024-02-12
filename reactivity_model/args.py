@@ -20,6 +20,12 @@ def get_args(cross_val=False):
         help="Re-trained a previous model",
     )
     parser.add_argument(
+        "--delta_ML",
+        default=False,
+        action="store_true",
+        help="Trained a delta model",
+    )
+    parser.add_argument(
         "--random_state",
         default=0,
         action="store",

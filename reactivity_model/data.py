@@ -4,7 +4,9 @@ import math
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import torch
-from torch.utils.data.dataset import Dataset
+from torch.utils.data.dataset import Dataset 
+from sklearn.linear_model import LinearRegression
+
 
 
 class PredDataset(Dataset):
@@ -208,3 +210,19 @@ def write_predictions(
     test_predicted.to_csv(file_name)
 
     return None
+
+
+def delta_target(train, valid, test):
+
+    X = np.array(train['dG_rxn'].values.tolist() + valid['dG_rxn'].values.tolist()).reshape(-1, 1)
+    y = np.array(train['DG_TS_tunn'].values.tolist() + valid['DG_TS_tunn'].values.tolist()).reshape(-1, 1)
+
+    model = LinearRegression()
+    model.fit(X, y)
+
+    for data in [train, valid, test]:
+        data['DG_TS_tunn_linear'] = model.predict(data[['dG_rxn']])
+        data['ddG_TS_tunn'] = data['DG_TS_tunn'] - data['DG_TS_tunn_linear']
+    
+    return train, valid, test
+
