@@ -214,8 +214,8 @@ def write_predictions(
 
 def delta_target(train, valid, test):
 
-    X = np.array(train['dG_rxn'].values.tolist() + valid['dG_rxn'].values.tolist()).reshape(-1, 1)
-    y = np.array(train['DG_TS_tunn'].values.tolist() + valid['DG_TS_tunn'].values.tolist()).reshape(-1, 1)
+    X = np.array(train['dG_rxn'].values.tolist()).reshape(-1, 1)
+    y = np.array(train['DG_TS_tunn'].values.tolist()).reshape(-1, 1)
 
     model = LinearRegression()
     model.fit(X, y)
