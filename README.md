@@ -3,7 +3,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2312.13136-b31b1b.svg)](https://doi.org/10.26434/chemrxiv-2023-2n281)
 
 This repository contains the code for a fast prediction of activation energies. Code is provided "as-is". Minor edits may be required to tailor the scripts for different computational systems. 
-The image below shows an schematic representation of the pipeline. 
+The image below shows a schematic representation of the pipeline. 
 
 ![](toc.png)
 
@@ -36,14 +36,14 @@ mol_1 + rad_2 >> rad_1 + mol_1
 
 The first step is the prediction of relevant chemical information of reactants and products with the surrogate model, and a
 learned VB-representation of the reaction smiles is generated. With this, the (tunneling corrected) activation energy is predicted. With the 
-combination of both models, a full reaction profile can be generated in a fast and accurate way.
+combination of both models, a full reaction profile can be generated quickly and accurately.
 
 ## Individual models
-In the `reactivity_model` and `surrogate_model` directories you can find each individual model. In both folder there is also a README in case you want 
+In the `reactivity_model` and `surrogate_model` directories you can find each individual model. In both folders, there is also a README in case you want 
 to use just one part of the pipeline.
 
 ## Reproducibility
-We provide a script `reproducibility.py` to generate mostly all the results showed in the publication. Be aware that the values concern to the Random Forest can vary in an small range. Run in the following way:
+We provide a script `reproducibility.py` to generate the main results shown in the publication. Be aware that the values concerning the Random Forest can vary in a small range. To run this script, execute:
 
 ```python
 python reproducibility.py
