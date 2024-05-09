@@ -1,6 +1,7 @@
 # Activation energy with tunneling correction prediction with a learned VB-representation and on-the-fly quantum mechanical descriptors
 
-[![arXiv](https://img.shields.io/badge/arXiv-2312.13136-b31b1b.svg)](https://doi.org/10.26434/chemrxiv-2023-2n281)
+[![ChemRxiv](https://img.shields.io/badge/arXiv-2312.13136-b31b1b.svg)](https://doi.org/10.26434/chemrxiv-2023-2n281)
+[![DOI](http://img.shields.io/badge/DOI-10.1039/D4DD00043A-008000.svg)](https://doi.org/10.1039/D4DD00043A)
 
 This repository contains the code for a fast prediction of activation energies. Code is provided "as-is". Minor edits may be required to tailor the scripts for different computational systems. 
 The image below shows a schematic representation of the pipeline. 
@@ -57,9 +58,9 @@ If you use this code, please cite:
          title={Repurposing QM Descriptor Datasets for on the Fly Generation of Informative Reaction Representations: 
          Application to Hydrogen Atom Transfer Reactions}, 
          author={Javier E. Alfonso-Ramos, Rebecca M. Neeser and Thijs Stuyver},
-         journal="{ChemRxiv}",
-         year="{2023}",
-         doi="10.26434/chemrxiv-2023-2n281",
-         url="https://doi.org/10.26434/chemrxiv-2023-2n281"
+         journal="{Digital Discovery}",
+         year="{2024}",
+         doi="10.1039/D4DD00043A",
+         url="https://doi.org/10.1039/D4DD00043A"
 }
 ```
