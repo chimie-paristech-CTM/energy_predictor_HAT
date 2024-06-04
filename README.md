@@ -60,6 +60,9 @@ If you use this code, please cite:
          author={Javier E. Alfonso-Ramos, Rebecca M. Neeser and Thijs Stuyver},
          journal="{Digital Discovery}",
          year="{2024}",
+         volume="{3}",
+         issue="{5}",
+         pages="{919-931}",
          doi="10.1039/D4DD00043A",
          url="https://doi.org/10.1039/D4DD00043A"
 }
